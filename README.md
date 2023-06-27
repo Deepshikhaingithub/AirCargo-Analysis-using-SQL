@@ -1,8 +1,8 @@
 # AirCargo-Analysis-using-SQL
 
-DESCRIPTION: Air Cargo is an aviation company that provides air transportation services for passengers and freight. Air Cargo uses its aircraft to provide different services with the help of partnerships or alliances with other airlines. The company wants to prepare reports on regular passengers, busiest routes, ticket sales details, and other scenarios to improve the ease of travel and booking for customers.
+**DESCRIPTION:** Air Cargo is an aviation company that provides air transportation services for passengers and freight. Air Cargo uses its aircraft to provide different services with the help of partnerships or alliances with other airlines. The company wants to prepare reports on regular passengers, busiest routes, ticket sales details, and other scenarios to improve the ease of travel and booking for customers.
 
-PROBLEM STATEMENT: As a DBA expert, I need to focus on identifying the regular customers to provide offers, analyze the busiest route which helps to increase the number of aircraft required and prepare an analysis to determine the ticket sales details. This will ensure that the company improves its operability and becomes more customer-centric and a favorable choice for air travel.
+**PROBLEM STATEMENT:** As a DBA expert, I need to focus on identifying the regular customers to provide offers, analyze the busiest route which helps to increase the number of aircraft required and prepare an analysis to determine the ticket sales details. This will ensure that the company improves its operability and becomes more customer-centric and a favorable choice for air travel.
 
 This project includes almost all the concepts of SQL like **Stored Procedure, Window functions, roll up function, group by and having clause, order by  clause, IF and CASE, Joins, use of constraints like primary key, foreign key, creating ER diagram etc. **
 
