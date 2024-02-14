@@ -1,4 +1,4 @@
-# AirCargo-Analysis-using-SQL
+# Airline-Analysis-using-SQL
 
 **Business Problem:**
 
