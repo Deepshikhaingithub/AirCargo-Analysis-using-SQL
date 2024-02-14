@@ -1,130 +1,120 @@
 # AirCargo-Analysis-using-SQL
 
-**DESCRIPTION:** Air Cargo is an aviation company that provides air transportation services for passengers and freight. Air Cargo uses its aircraft to provide different services with the help of partnerships or alliances with other airlines. The company wants to prepare reports on regular passengers, busiest routes, ticket sales details, and other scenarios to improve the ease of travel and booking for customers.
+**Business Problem:**
 
-**PROBLEM STATEMENT:** As a DBA expert, I need to focus on identifying the regular customers to provide offers, analyze the busiest route which helps to increase the number of aircraft required and prepare an analysis to determine the ticket sales details. This will ensure that the company improves its operability and becomes more customer-centric and a favorable choice for air travel.
+The aviation company faces a challenge in enhancing its overall business performance by optimizing various aspects of its operations. 
+The main challenges include:
+1.	Optimizing the fleet composition based on passenger preferences and operational efficiency.
+2.	Implementing targeted marketing strategies to enhance customer engagement and loyalty.
+3.	Planning and executing operational expansions, particularly in identifying potential hub airports for improved connectivity.
+4.	Strategically identifying peak revenue seasons for effective promotional planning. 
+The airline aims to leverage data-driven insights to make informed decisions in these areas, ultimately improving customer satisfaction, maximizing revenue, and positioning itself for sustained growth in the competitive aviation market.
 
-This project includes almost all the concepts of SQL like **Stored Procedure, Window functions, roll up function, group by and having clause, order by  clause, IF and CASE, Joins, use of constraints like primary key, foreign key, creating ER diagram etc. **
+**Objectives for the Project:**
 
-This project contains 4 tables, whose data description is given below:
+1.	Customer Segmentation and Preferences:
+•	Understand customer demographics and travel preferences.
+•	Identify patterns in gender and travel class preferences.
+2.	Airport Optimization:
+•	Determine the busiest departure airports.
+•	Identify potential hub airports for operational planning.
+•	Analyze destination airports for arrival patterns.
+3.	Route Optimization:
+•	Identify the longest and shortest flight routes for strategic planning.
+•	Categorize routes into short, intermediate, and long distances.
+4.	Revenue Management:
+•	Optimize pricing strategies based on historical ticket sales and customer preferences.
+•	Identify the most profitable travel classes.
+•	Analyze yearly revenue trends and monthly variations.
+5.	Customer Booking Insights:
+•	Identify customers with the highest number of ticket bookings.
+•	Determine passengers traveling by specific classes for targeted services.
+•	Implement a function to specify if complimentary services are provided for specific travel classes.
 
-Dataset description:
+The analysis and insights provided through SQL queries form the basis for informed decision-making in addressing the identified challenges and achieving the set objectives.
 
-Customer: Contains the information of customers
+**About the Dataset:**
 
-•	customer_id – ID of the customer
+There are four tables in the "aviation" database namely: `passengersonflight`, `customer`, `routes`, and `ticketdetails`. 
+Below is a summary of each table:
 
-•	first_name – First name of the customer
-
-•	last_name – Last name of the customer 
-
-•	date_of_birth – Date of birth of the customer
-
-•	gender – Gender of the customer
+1. passengersonflight Table:
+•	Columns: passenger_id, flight_id, customer_id, route_id, travel_class, seat_number.
+•	Foreign Key Constraints: 
+o	`fk` on `customer_id` referencing `customer(customer_id)`.
+o	`fk2` on `route_id` referencing `routes(route_id)`.
  
-passengers_on_flights: Contains information about the travel details
 
-•	aircraft_id – ID of each aircraft in a brand
+2. customer Table:
+•	Columns: customer_id, first_name, last_name, email, phone_number.
+•	Primary Key Constraint: `pk` on `customer_id`. 
 
-•	route_id – Route ID of from and to location
-
-•	customer_id – ID of the customer
-
-•	depart – Departure place from the airport
-
-•	arrival – Arrival place in the airport
-
-•	seat_num – Unique seat number for each passenger
-
-•	class_id – ID of travel class
-
-•	travel_date – Travel date of each passenger
-
-•	flight_num – Specific flight number for each route
-
+3. routes Table:
+•	Columns: route_id, departure_airport, arrival_airport, distance, duration.
+•	Primary Key Constraint: `pk1` on `route_id`.
  
- 
-ticket_details: Contains information about the ticket details
-
-•	p_date – Ticket purchase date
-
-•	customer_id – ID of the customer
-
-•	aircraft_id – ID of each aircraft in a brand
-
-•	class_id – ID of travel class
-
-•	no_of_tickets – Number of tickets purchased
-
-•	a_code – Code of each airport
-
-•	price_per_ticket – Price of a ticket
-
-•	brand – Aviation service provider for each aircraft
+4. ticketdetails Table:
+•	Columns: ticket_id, customer_id, flight_id, ticket_price, purchase_date.
+•	 Foreign Key Constraint: `fk1` on `customer_id` referencing `customer(customer_id)`.
 
  
-routes: Contains information about the route details
+**TASKS PERFORMED:**
 
-•	Route_id – Route ID of from and to location
+1. **Database Setup:**
+   - Created a new database named "aviation."
+   - Defined tables: `passengersonflight`, `customer`, `routes`, and `ticketdetails`.
+   - Established foreign key relationships for data integrity.
 
-•	Flight_num – Specific fight number for each route
+2. **ER Diagram:**
+   - Included a visual representation of the entity-relationship diagram to showcase the database structure.
 
-•	Origin_airport – Departure location
+3. **Aircraft Analysis:**
+   - Identified four types of aircraft: Airbus A321, Boeing 767-301ER, Embraer ERJ142, and Bombardier CRJ900.
+   - Analyzed ticket sales per aircraft type, revealing Boeing 767-301ER as the most popular.
 
-•	Destination_airport – Arrival location
+4. **Customer Segmentation and Preferences:**
+   - Explored customer demographics and travel preferences, including gender and travel class preferences.
+   - Identified that males predominantly booked tickets in the Business class.
 
-•	Aircraft_id – ID of each aircraft in a brand
+5. **Airport Optimization:**
+   - Determined busiest departure airports (e.g., HNL, EWR, LAX).
+   - Identified popular destination airports (e.g., LAX, EWR).
 
-•	Distance_miles – Distance between departure and arrival location
+6. **Route Optimization:**
+   - Analyzed longest and shortest flight routes for strategic planning.
+   - Categorized routes into short, intermediate, and long distances.
+
+7. **Revenue Management:**
+   - Optimized pricing strategies based on historical ticket sales and customer preferences.
+   - Identified most profitable travel classes (e.g., Business class).
+
+8. **Customer Booking Insights:**
+   - Identified customers with the highest number of ticket bookings.
+   - Implemented a function to specify if complimentary services are provided for specific travel classes.
+
+9. **Yearly and Monthly Revenue Trends:**
+   - Analyzed yearly revenue trends, showing growth from 2018 to 2019 and further growth in 2020.
+   - Explored monthly revenue variations across different years, identifying high-revenue months.
+
+10. **Advanced Analysis using Window Functions, Rollup, and Stored Procedures:**
+    - Examined the number of tickets booked by passengers, identifying top customers.
+    - Identified passengers traveling by Business class for potential complementary service considerations.
+    - Utilized window functions to find maximum ticket prices for each class.
+    - Employed rollup function to calculate the total price of tickets booked by a customer across different aircraft IDs.
+    - Developed stored procedures to extract details based on route ranges, distance categories, and complimentary services.
 
 
+**Conclusion:**
 
-TASKS PERFORMED:
+ In conclusion, the SQL analysis of the aviation company's dataset yielded actionable insights for strategic decision-making. 
+•	For instance, the identification of Boeing 767-301ER as the preferred aircraft suggests potential fleet optimization strategies.
+•	The observation that male customers predominantly choose Business class highlights an opportunity for targeted marketing and services tailored to this demographic. 
+•	The exploration of departure and destination airports, such as HNL(Honolulu International Airport) and LAX (Los Angeles International Airport), provides a basis for operational planning and potential hub expansion.
+•	 The examination of revenue by class underscores the significance of premium classes like Business and First Class in generating higher total revenue.
+•	The identification of peak revenue months like March and November enables strategic promotional planning. 
+•	The use of stored procedures and functions further streamlines data extraction for ongoing analysis, supporting the aviation company's goal of sustained growth and enhanced customer satisfaction.
 
-This project involved an analysis of an air cargo company's database, focusing on various aspects such as entity-relationship modeling, database querying, stored procedure creation, and data extraction. 
 
-The key tasks performed throughout the project are as follows:
-
-1.	Created an ER diagram to visualize the relationships within the airlines database, helping to understand the structure of the data.
-
-2.	Designed a query to create the route_details table, considering appropriate data types for fields such as route ID, flight number, origin airport, destination airport, aircraft ID, and distance in miles. Implemented check and unique constraints for flight numbers and route IDs, respectively, and ensured the distance in miles is greater than 0.
-
-3.	Wrote a query to display all the passengers who traveled on routes 01 to 25, retrieving data from the passengers_on_flights table.
-
-4.	Developed a query to identify the number of passengers and total revenue in the business class from the ticket_details table.
-
-5.	Constructed a query to display the full name of the customers by extracting the first name and last name from the customer table.
-
-6.	Formulated a query to extract the customers who have registered and booked a ticket, utilizing data from the customer and ticket_details tables.
-
-7.	Created a query to identify the customer's first name and last name based on their customer ID and brand (specifically, Emirates) from the ticket_details table.
-
-8.	Utilized the Group By and Having clauses to write a query that identifies the customers who have traveled by the Economy Plus class, leveraging the passengers_on_flights table.
-
-9.	Implemented an IF clause within a query to identify whether the revenue has exceeded 10,000, examining the ticket_details table.
-
-10.	Developed a query to create and grant access to a new user, allowing them to perform operations on the database.
-
-11.	Utilized window functions in a query to determine the maximum ticket price for each class from the ticket_details table.
-
-12.	Optimized the performance of a query to extract passengers with a specific route ID (4) from the passengers_on_flights table.
-
-13.	Created a query to view the execution plan of the passengers_on_flights table for the specified route ID (4).
-
-14.	Developed a query using the rollup function to calculate the total price of all tickets booked by a customer across different aircraft IDs.
-
-15.	Created a view containing only business class customers along with the brand of airlines.
-
-16.	Designed a stored procedure to retrieve details of all passengers flying between a range of routes.
-
-17.	Developed a stored procedure to extract details from the routes table where the traveled distance is more than 2000 miles.
-
-18.	Created a stored procedure to group the distance traveled by each flight into three categories: short distance travel (SDT), intermediate distance travel (IDT), and long-distance travel (LDT).
-
-19.	Utilized a stored function within a stored procedure to extract the ticket purchase date, customer ID, class ID, and information on whether complimentary services are provided based on the specific class.
-
-**The screenshot of the output of all the tasks has been pasted after every tasks performed and can be referred from the pdf file uploaded.
-**
 
 HAPPY ANALYZING !!!
 
